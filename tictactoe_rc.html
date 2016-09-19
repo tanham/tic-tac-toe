@@ -44,7 +44,8 @@
             } else if(cell.innerHTML === ""){
                 cell.innerHTML = document.turn;
                 switchPlayer();
-                playNextAvailCell();
+                //playNextAvailCell();
+                playRandomCell();
                 switchPlayer();
                 console.log(board());
                  
@@ -65,10 +66,9 @@
 
             } else if(document.turn === playerOne){
                 document.turn = computerTurn;
-                displayOutcome("It's " + document.turn + " turn.")
-           
-            } else if(document.turn === computerTurn){
-                document.turn = playerOne;
+                //displayOutcome("It's " + document.turn + " turn.")
+        
+
             } else {
                 document.turn = playerOne;
             }  
@@ -101,9 +101,22 @@
             }
            
         }
-        
 
         var emptyStrArr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        
+        function playRandomCell() {
+            for(i = 0; i <= 9; i++) {
+            var randNum = Math.floor(Math.random() * (emptyStrArr.length));
+                if(cells[randNum].innerHTML !== "") {
+                    continue;
+                }
+                else {
+                    cells[randNum].innerHTML = computerTurn;
+                    break;
+                }
+            }
+        }
+        
         
         function pickRandCell() {
             //stores integer in index randNum
@@ -116,12 +129,6 @@
             return toPlay;
         }
 
-        function playRandCell() {
-            if(pickRandCell() === document.cellArr.indexOf("")) {
-                //getElementById('cell-1').addEventListener("click", nextMove());
-            }
-        }
-        
 
         function checkForWinner(move) {
             var result = false;

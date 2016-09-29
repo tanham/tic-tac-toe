@@ -8,27 +8,46 @@
         var O = document.getElementById("button-o");
 
         
+       /* broken script
+        * does nothing when 
+        * button is clicked 
+        */
         function selectPlayer(button) {
             //if button-x is clicked, playerOne = X
             //if button-o is clicked, playerOne = O
             if(document.getElementById("button-x").isclicked) {
-                playerOne = X;
+                playerOne = "X";
             } else if (document.getElementById("button-o").isclicked) {
-                playerOne = O;
+                playerOne = "O";
             }
         }
 
         function startGame(){
-            for(var i = 1; i <=9; i++) {
-                clearGame(i);
-            }
+           for(var i = 1; i <=9; i++) {
+            clearGame(i);
+             
             document.turn = playerOne;
             document.winner = null;
             displayOutcome(document.turn + " is up first!");
         }
+    }
 
         function clearGame(number) {
             document.getElementById(number).innerHTML = "";
+            
+        }
+
+
+        /* broken script
+        * when do I call this? 
+        * is this defined correctly?
+        */
+        function resetGame(){
+            for(var i = 1; i <=9; i++) {
+                if(checkForWinner() === true && checkForDraw() === true){
+                clearGame(i);
+                }
+            }
         }
 
 

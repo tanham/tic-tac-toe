@@ -1,0 +1,24 @@
+body {
+	max-width: 900px;
+	margin: 0 auto;
+	margin-left: 400px;
+}
+
+#outcome {
+	font-size: 42px;
+}
+.cells {
+	text-align: center;
+	font-size: 72px;
+	font-family: Verdana;
+	margin: 0;
+    width: 150px;
+    height: 150px;
+}
+
+button {
+	font-size: 45px;
+	margin: 0 auto;
+	padding-left: 100px; 
+	padding-right: 100px;
+}

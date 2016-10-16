@@ -1,36 +1,27 @@
-      
-
-
         var playerOne = "X";
         var computerTurn = "O";
         var cells = document.getElementsByClassName('cells');
-        var X = document.getElementById("button-x");
-        var O = document.getElementById("button-o");
-
-        
-       /* broken script
-        * does nothing when 
-        * button is clicked 
-        */
-        function selectPlayer(button) {
-            //if button-x is clicked, playerOne = X
-            //if button-o is clicked, playerOne = O
-            if(document.getElementById("button-x").isclicked) {
-                playerOne = "X";
-            } else if (document.getElementById("button-o").isclicked) {
-                playerOne = "O";
-            }
+        var X = document.querySelector("#button-x");
+        var O = document.querySelector("#button-o");
+    
+        function selectPlayer(button){
+            if(X){
+                playerOne == "X";
+                computerTurn == "O";
+            } else if(O){
+                playerOne == "O";
+                computerTurn == "X";
+            } else {}
         }
 
         function startGame(){
            for(var i = 1; i <=9; i++) {
-            clearGame(i);
-             
+            clearGame(i); 
             document.turn = playerOne;
             document.winner = null;
             displayOutcome(document.turn + " is up first!");
+            }
         }
-    }
 
         function clearGame(number) {
             document.getElementById(number).innerHTML = "";
@@ -68,6 +59,7 @@
                 playRandomCell();
                 switchPlayer();
                 console.log(board());
+
                  
             } else {
                 displayOutcome("That square is already used.");
@@ -104,23 +96,24 @@
             return document.cellArr;
         }
         
-
-        function playNextAvailCell() {
-
-            for(var i = 0; i < 9; i++) {
-                if(cells[i].innerHTML !== ""){
-                    cells[i] = cells.innerHTML
-                    continue;
-                }
-                else {
-                    cells[i].innerHTML = computerTurn;
-                        cells[i] = cells.innerHTML
-                           break;    
-                }
-     
-            }
-           
-        }
+        /* Inactive function 
+         *function playNextAvailCell() {
+         *
+         *    for(var i = 0; i < 9; i++) {
+         *        if(cells[i].innerHTML !== ""){
+         *            cells[i] = cells.innerHTML
+         *            continue;
+         *        }
+         *        else {
+         *            cells[i].innerHTML = computerTurn;
+         *                cells[i] = cells.innerHTML
+         *                   break;    
+         *        }
+         *
+         *    }
+         *   
+         *  }
+         */
 
         var emptyStrArr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
         
@@ -205,5 +198,3 @@
            }
            return true;
            }
-
-             
